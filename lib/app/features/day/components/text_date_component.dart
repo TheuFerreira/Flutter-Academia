@@ -1,14 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_academia/app/features/dialog_helper/dialog_helpers.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import '../day_controller.dart';
 
 class TextDateComponent extends StatelessWidget {
-  const TextDateComponent({Key? key, this.onPressed}) : super(key: key);
-
-  final Function()? onPressed;
+  const TextDateComponent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +22,20 @@ class TextDateComponent extends StatelessWidget {
           style: new TextStyle(fontSize: 20),
         ),
         new IconButton(
-          onPressed: onPressed,
+          onPressed: () => changeDate(context, controller),
           icon: new Icon(Icons.edit),
         )
       ],
     );
+  }
+
+  Future<void> changeDate(
+      BuildContext context, DayController controller) async {
+    var result =
+        await DialogHelpers.showCalendar(context, controller.selectedDate);
+    if (result == null) return;
+
+    DateTime _ = DateTime.parse(result.toString());
+    controller.changeDate(_);
   }
 }

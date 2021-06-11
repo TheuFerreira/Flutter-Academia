@@ -14,7 +14,6 @@ class DayPage extends StatefulWidget {
 }
 
 class _DayPageState extends State<DayPage> {
-  late DateTime selectedDate = DateTime.now();
   late DayModel day;
 
   @override
@@ -23,6 +22,9 @@ class _DayPageState extends State<DayPage> {
       Provider.of<DayController>(context, listen: false).getAllTrainings(day);
     });
     super.initState();
+
+    final controller = context.read<DayController>();
+    controller.selectedDate = DateTime.now();
   }
 
   @override
@@ -54,7 +56,7 @@ class _DayPageState extends State<DayPage> {
                 ],
               ),
             ),
-            new TextDateComponent(onPressed: () async => await changeDate()),
+            new TextDateComponent(),
             new Padding(
               padding: const EdgeInsets.all(20),
               child: new TextButton.icon(
@@ -76,27 +78,6 @@ class _DayPageState extends State<DayPage> {
         ),
       ),
     );
-  }
-
-  Future<void> changeDate() async {
-    DayController dayController = context.read<DayController>();
-    var result = await showDialog(
-      context: context,
-      builder: (builder) {
-        return new Dialog(
-          backgroundColor: Colors.transparent,
-          child: new DatePickerDialog(
-            initialDate: dayController.selectedDate,
-            firstDate: new DateTime(2000, 01, 01),
-            lastDate: new DateTime(2050, 01, 01),
-          ),
-        );
-      },
-    );
-    if (result == null) return;
-
-    DateTime _ = DateTime.parse(result.toString());
-    dayController.changeDate(_);
   }
 
   void _save() async {
