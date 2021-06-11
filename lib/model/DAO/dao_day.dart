@@ -1,5 +1,5 @@
 import 'package:flutter_academia/model/connection.dart';
-import 'package:flutter_academia/model/day_model.dart';
+import 'package:flutter_academia/app/features/home/models/day_model.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DAODay {

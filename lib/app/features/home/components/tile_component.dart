@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_academia/model/day_model.dart';
+import 'package:flutter_academia/app/features/home/models/day_model.dart';
 
 class TileComponent extends StatelessWidget {
   const TileComponent({Key? key, this.day, this.onTap}) : super(key: key);

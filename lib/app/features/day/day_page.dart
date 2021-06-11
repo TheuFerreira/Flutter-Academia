@@ -3,7 +3,7 @@ import 'package:flutter_academia/app/features/day/components/dropdown_component.
 import 'package:flutter_academia/app/features/day/components/table_component.dart';
 import 'package:flutter_academia/app/features/day/components/text_date_component.dart';
 import 'package:flutter_academia/app/features/day/day_controller.dart';
-import 'package:flutter_academia/model/day_model.dart';
+import 'package:flutter_academia/app/features/home/models/day_model.dart';
 import 'package:provider/provider.dart';
 
 class DayPage extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:flutter_academia/model/day_model.dart';
+import 'package:flutter_academia/app/features/home/models/day_model.dart';
 import 'package:flutter_academia/model/training_model.dart';
 
 class DayTrainingModel {
