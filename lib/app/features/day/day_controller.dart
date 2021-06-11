@@ -23,7 +23,7 @@ class DayController extends ChangeNotifier {
   }
 
   void changeSelectedTraining(TrainingModel? trainingModel) {
-    selectedTraining = trainingModel!;
+    selectedTraining = trainingModel;
     notifyListeners();
   }
 

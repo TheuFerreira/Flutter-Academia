@@ -5,14 +5,14 @@ class TileComponent extends StatelessWidget {
   const TileComponent({Key? key, this.day, this.onTap}) : super(key: key);
 
   final DayModel? day;
-  final void Function(TileComponent)? onTap;
+  final void Function(DayModel)? onTap;
 
   @override
   Widget build(BuildContext context) {
     return new Padding(
       padding: const EdgeInsets.all(10),
       child: new InkWell(
-        onTap: () => onTap!(this),
+        onTap: () => onTap!(day!),
         child: new Container(
           decoration: new BoxDecoration(
             color: day!.color,
