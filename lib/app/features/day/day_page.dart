@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_academia/app/features/day/components/dropdown_component.dart';
+import 'package:flutter_academia/app/features/day/components/save_button_component.dart';
 import 'package:flutter_academia/app/features/day/components/table_component.dart';
 import 'package:flutter_academia/app/features/day/components/text_date_component.dart';
 import 'package:flutter_academia/app/features/day/day_controller.dart';
@@ -38,49 +39,34 @@ class _DayPageState extends State<DayPage> {
         title: new Center(
           child: new Text(day.name!),
         ),
+        actions: [
+          IconButton(onPressed: null, icon: Icon(null)),
+        ],
       ),
       body: new SingleChildScrollView(
         child: new Column(
           children: <Widget>[
-            new Padding(
-              padding: const EdgeInsets.all(20),
-              child: new Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  new Text(
-                    'Treino do Dia: ',
-                    style: new TextStyle(fontSize: 20),
-                  ),
-                  new SizedBox(width: 10),
-                  new DropdownComponent(),
-                ],
-              ),
-            ),
-            new TextDateComponent(),
-            new Padding(
-              padding: const EdgeInsets.all(20),
-              child: new TextButton.icon(
-                onPressed: _save,
-                icon: new Icon(Icons.save),
-                label: new Text(
-                  'Salvar',
+            new SizedBox(height: 40),
+            new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                new Text(
+                  'Treino do Dia: ',
                   style: new TextStyle(fontSize: 20),
                 ),
-                style: TextButton.styleFrom(
-                  primary: Colors.white,
-                  backgroundColor: Colors.blue,
-                  minimumSize: new Size(250, 40),
-                ),
-              ),
+                new SizedBox(width: 10),
+                new DropdownComponent(),
+              ],
             ),
+            new SizedBox(height: 40),
+            new TextDateComponent(),
+            new SizedBox(height: 40),
+            new SaveButtonComponent(day: day),
+            new SizedBox(height: 40),
             new TableComponent(),
           ],
         ),
       ),
     );
-  }
-
-  void _save() async {
-    context.read<DayController>().save(day);
   }
 }

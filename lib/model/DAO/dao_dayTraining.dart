@@ -38,4 +38,12 @@ class DAODayTraining {
       ],
     );
   }
+
+  Future<void> remove(DayTrainingModel dayTraining) async {
+    Database db = await Connection.db.database;
+
+    await db.rawDelete('DELETE FROM Dia_Treino WHERE id = ?', [
+      dayTraining.id,
+    ]);
+  }
 }

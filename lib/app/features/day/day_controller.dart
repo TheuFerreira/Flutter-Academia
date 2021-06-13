@@ -44,7 +44,12 @@ class DayController extends ChangeNotifier {
 
     selectedTraining = trainings[0];
     selectedDate = DateTime.now();
-    print("Salvando");
+    notifyListeners();
+  }
+
+  void remove(DayTrainingModel dayTraining) async {
+    await _daoDayTraining.remove(dayTraining);
+    allTrainings.remove(dayTraining);
     notifyListeners();
   }
 }
