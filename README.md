@@ -11,7 +11,7 @@
 
 | Nome | Status APK |
 |---|---|
-| app-release.apk | [V1.0.0](https://github.com/TheuFerreira/Flutter-Academia/releases/tag/1.1.0) | 
+| app-release.apk | [V1.1.0](https://github.com/TheuFerreira/Flutter-Academia/releases/tag/1.1.0) | 
 
 ## Desenvolvimento
 * Para o desenvolviemnto do aplicativo "Academia", foram utilizados os seguintes frameworks:
