@@ -11,6 +11,7 @@
 
 | Nome | Status APK |
 |---|---|
+| app-release.apk | [V1.2.0](https://github.com/TheuFerreira/Flutter-Academia/releases/tag/V1.2.0) | 
 | app-release.apk | [V1.1.0](https://github.com/TheuFerreira/Flutter-Academia/releases/tag/1.1.0) | 
 
 ## Desenvolvimento
@@ -19,6 +20,5 @@
   - Intl: Para a formatação das Datas.
   - Path Provider: Para o controle de caminhos do dispositivo mobile.
   - Provider: Para o gerenciamento do estado.
-  - Flutter Staggered Grid View: Para o controle e customização da Tabela.
   - Flutter Launcher Icons: Para trocar o ícone da aplicação por um ícone customizado. 
 #### Este Software, foi feito em conjunto com [Paulo Fernado](https://www.linkedin.com/in/paulo-fernando-071bb31a9/), que ficou responstável por toda a parte de Design da Aplicação.
