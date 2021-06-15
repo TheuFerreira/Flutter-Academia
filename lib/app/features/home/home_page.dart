@@ -32,6 +32,137 @@ class _HomePageState extends State<HomePage> {
 
     return new WillPopScope(
       child: new Scaffold(
+        body: new Padding(
+          padding: const EdgeInsets.only(top: 25),
+          child: new Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              new Flexible(
+                flex: 3,
+                child: new Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    new Expanded(
+                      child: new Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          new Expanded(
+                            flex: 1,
+                            child: new TileComponent(
+                              day: controller.days[0],
+                              onTap: _onTap,
+                            ),
+                          ),
+                          new Expanded(
+                            flex: 1,
+                            child: new TileComponent(
+                              day: controller.days[1],
+                              onTap: _onTap,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              new Flexible(
+                flex: 3,
+                child: new Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    new Expanded(
+                      child: new Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          new Expanded(
+                            flex: 1,
+                            child: new TileComponent(
+                              day: controller.days[2],
+                              onTap: _onTap,
+                            ),
+                          ),
+                          new Expanded(
+                            flex: 1,
+                            child: new TileComponent(
+                              day: controller.days[3],
+                              onTap: _onTap,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              new Flexible(
+                flex: 3,
+                child: new Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    new Expanded(
+                      child: new Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          new Expanded(
+                            flex: 1,
+                            child: new TileComponent(
+                              day: controller.days[4],
+                              onTap: _onTap,
+                            ),
+                          ),
+                          new Expanded(
+                            flex: 1,
+                            child: new TileComponent(
+                              day: controller.days[5],
+                              onTap: _onTap,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              new Flexible(
+                flex: 2,
+                child: new Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    new Expanded(
+                      child: new Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          new Expanded(
+                            flex: 1,
+                            child: new TileComponent(
+                              day: controller.days[6],
+                              onTap: _onTap,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      onWillPop: () async {
+        Connection.db.close = true;
+        return true;
+      },
+    );
+  }
+
+  void _onTap(DayModel dayModel) async =>
+      await Navigator.pushNamed(context, '/day', arguments: dayModel);
+}
+
+/*return new WillPopScope(
+      child: new Scaffold(
         body: new StaggeredGridView.count(
           primary: false,
           crossAxisCount: 4,
@@ -56,9 +187,4 @@ class _HomePageState extends State<HomePage> {
         Connection.db.close = true;
         return true;
       },
-    );
-  }
-
-  void _onTap(DayModel dayModel) async =>
-      await Navigator.pushNamed(context, '/day', arguments: dayModel);
-}
+    );*/
