@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_academia/app/features/dialog_helper/dialog_helpers.dart';
+import 'package:flutter_academia/app/features/home/models/day_model.dart';
 import 'package:flutter_academia/model/dayTraining_model.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +8,9 @@ import 'package:provider/provider.dart';
 import '../day_controller.dart';
 
 class TableComponent extends StatelessWidget {
-  const TableComponent({Key? key}) : super(key: key);
+  const TableComponent({Key? key, this.day}) : super(key: key);
+
+  final DayModel? day;
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +22,19 @@ class TableComponent extends StatelessWidget {
         new DataColumn(
           label: new Text(
             'Treino',
-            style: new TextStyle(fontSize: 20),
+            style: new TextStyle(
+              fontSize: 20,
+              color: day!.color,
+            ),
           ),
         ),
         new DataColumn(
           label: new Text(
             'Data',
-            style: new TextStyle(fontSize: 20),
+            style: new TextStyle(
+              fontSize: 20,
+              color: day!.color,
+            ),
           ),
         ),
         new DataColumn(
@@ -53,7 +62,11 @@ class TableComponent extends StatelessWidget {
             new DataCell(
               new IconButton(
                 onPressed: () => _remove(context, controller, e),
-                icon: new Icon(Icons.delete),
+                icon: new Icon(
+                  Icons.delete_forever_outlined,
+                  color: day!.color,
+                  size: 30,
+                ),
               ),
             ),
           ],

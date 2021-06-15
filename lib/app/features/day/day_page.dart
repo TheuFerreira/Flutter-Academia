@@ -36,6 +36,7 @@ class _DayPageState extends State<DayPage> {
 
     return new Scaffold(
       appBar: new AppBar(
+        backgroundColor: day.color,
         title: new Center(
           child: new Text(day.name!),
         ),
@@ -63,7 +64,7 @@ class _DayPageState extends State<DayPage> {
             new SizedBox(height: 40),
             new SaveButtonComponent(day: day),
             new SizedBox(height: 40),
-            new TableComponent(),
+            new TableComponent(day: day),
           ],
         ),
       ),

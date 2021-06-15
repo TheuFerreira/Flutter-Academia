@@ -13,17 +13,16 @@ class SaveButtonComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = context.watch<DayController>();
 
-    return new TextButton.icon(
+    return new TextButton(
       onPressed: () => controller.save(day!),
-      icon: new Icon(Icons.save),
-      label: new Text(
+      child: new Text(
         'Salvar',
-        style: new TextStyle(fontSize: 20),
+        style: new TextStyle(fontSize: 30),
       ),
       style: TextButton.styleFrom(
         primary: Colors.white,
-        backgroundColor: Colors.blue,
-        minimumSize: new Size(250, 40),
+        backgroundColor: day!.color,
+        minimumSize: new Size(200, 60),
       ),
     );
   }
